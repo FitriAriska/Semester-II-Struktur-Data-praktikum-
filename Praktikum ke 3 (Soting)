@@ -1,0 +1,96 @@
+# Semester-II-Struktur-Data-praktikum-myArray-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Sort;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ *
+ * @author H P
+ */
+public class Java {
+      public static void main (String args[]){
+        //Mendeklarasikan Array
+        int[] numbers = new int[50];// menentukan panjang sebuah array
+        
+        Scanner scan = new Scanner (System.in);//untuk menampilkan output ke user System.out.printl
+        
+        System.out.println("Masukkan Angka: ");//mencetak untuk ditampilkan
+        for (int i = 0; i < numbers.length; i++){//melakukan perulangan pada bilangan array dengan panjang sesuai yang ditentukan di atas
+            numbers[i] = scan.nextInt();//memasukkan angka berupa int
+        }
+        //untuk menampilkan Array yang tidak urut
+        System.out.println("Unordered list of my  Array");//mencetak untuk ditampilkan 
+            for(int unorderedArray : numbers) {// melakukan perulangan acak dengan hasil yang sama dengan inputan
+                System.out.println(unorderedArray);//menampilkan hasil yang diunorderedArray
+            }
+            
+            //arrays.sort(numbers);1
+            for (int i = 0; i < numbers.length;i++) {//melakukan perulangan dengan panjang array sesuai dengan yang ditentukan diatas
+                for (int j = 0; j < numbers.length - 1; j++) {//setiap kali ada perulangan number akan dikurangi 1
+                    //if the numbers are not in order
+                    if (numbers [j] > numbers [j + 1]) {
+                        //swap the numbers 
+                        int temp = numbers[j];//untuk menyimpan nilai
+                        numbers[j] = numbers[j + 1];
+                        numbers [j + 1] = temp;
+                    }//endif
+                }//endfor
+            }//endfor
+            
+            System.out.println("Ordered list using selection sort");//mencetak untuk ditampilkan 
+            for(int orderedArray : numbers) {// melakukan perulangan berurutan dari yang terkecil hingga terbesar dari yang diimputkan
+                    System.out.println(orderedArray);//menampilkan hasil yang diorderedArray
+                    
+        }
+    }  
+}
+  
+    
+
+**********************************************
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Sort;
+
+/**
+ *
+ * @author Fitri Ariska
+ 
+public class SortExample {
+    public static void main(String[] args){
+        int[] numbers = {40, 7, 59, 4, 1};//tipe data dan panjang data
+        displayValues(numbers);
+        selectionSort(numbers);
+        displayValues(numbers);
+    }
+static void selectionSort(int[] numbers){
+    int indexMin = 0;//mengindex angka dari terkecil
+    for (int i = 0; i < numbers.length;i++){
+        indexMin = i;
+    for (int j = i +1 ; j < numbers.length;j++){//melakukan perulangan dari nilai terkecil ke terbesar
+        if(numbers[j] <numbers[indexMin]){//menentukan index terkecil dijadikan min
+            indexMin =j;
+        }
+    }
+    int temp = numbers[i];//untuk menyimpan nilai
+    numbers[i] = numbers[indexMin];
+    numbers[indexMin] = temp;
+}   
+}
+static void displayValues(int[] numbers){
+    for (int i = 0; i< numbers.length; i++){
+        System.out.print(numbers[i] + " ");
+}
+ System.out.println("\n");//mencetak agar outputnya menggunakan baris
+}
+}
