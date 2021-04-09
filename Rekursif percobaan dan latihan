@@ -1,0 +1,601 @@
+Praktikum percobaan 
+###################################################
+
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska 
+ */
+//membuat class FaktorialDemo
+public class FaktorialDemo {
+    
+    //membuat fungsi data bertipe integer dan
+    // menrima inputan data berupa integer
+    public static int faktorial(int x){
+        
+        //ketika dicek nilai berupa 1 maka akan mengembalikan nilai x
+         if (x==1)
+             
+             //maka yang dihasilkan yaitu nilai x
+             return x ;
+         else
+          //ketika nilai variabel x bukan 1 maka nilai x dikalikan dengan hasil faktorial x-1   
+         return x * faktorial(x-1); 
+    }
+    public static void main(String[] args){
+        //digunakan untuk menscan sbuah inputan
+        Scanner input = new Scanner(System.in);
+        //untuk menginputkan N bertipe int
+        System.out.println("N = ");
+        int n = input.nextInt();
+        //menampilkan hasil dari sebuah inputan
+        System.out.println("Hasil = "+ faktorial(n));
+        
+        
+    }
+    
+}
+################################################################
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska 
+ */
+//membuat class Fibonacci
+public class Fibonacci {
+    
+     //membuat fungsi data bertipe integer dan
+    // menrima inputan data berupa integer
+    public static int fibbon(int x){
+        //jika x kurang dari sama dengan 0 sam dengan x kurang dari sma dengan 1
+        if (x<=0 || x<=1)
+            //maka yang dihasilkan yaitu nilai x
+            return x;
+        else
+            //maka yang dihasilkan yaitu nilai fibbon(x-2) + fibbon(x-1)
+            return fibbon(x-2) + fibbon(x-1);
+    }
+    public static void main(String[] args){
+        int n = 10;
+        for (int i=0;i<n;i++)
+            //menampilkan hasil dari sebuah inputan
+            System.out.println("f"+ i + "=" + fibbon(i));
+    }
+    
+}
+###################################################################################333
+ /*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska
+ */
+//membuat class program
+public class Karakter {
+    public static void CharCombination(String a, int n){
+        //jika dicek nila n sama dengan 0 
+        if (n==0)
+            //mencetak output 
+            System.out.println(a + ""); 
+        else//jika salah maka masuk akan di proses
+            for(int i=97;i<99 ; i++)
+                CharCombination(a+(char)i,n-1);
+    }
+    public static void main(String[] args){
+        //menjalankan program
+        CharCombination("",2);
+    }
+}
+#################################################################################
+
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska 
+ */
+//membuat class pangkat
+public class Pangkat {
+    //membuat fungsi data bertipe integer dengan metode pangkat
+    public static int pangkatrekursif(int x, int y){
+       //ketika dicek nilai berupa 0 maka akan mengembalikan nilai y
+        if (y==0)
+            //akan mengahasilkan nilai 1
+            return 1;
+        // menetapkan hasil return x * pangkatrekursif(x,y-1)
+        else return x * pangkatrekursif(x,y-1);
+    }
+    public static void main(String[] args){
+        //mencetak pada sebuah output 
+        System.out.println("Bilangan x pangkat y:");
+        //digunakan untuk menscan sebuah inputan
+        Scanner input = new Scanner(System.in);
+        //mencetak pada sebuah output ketika di enter
+        System.out.println("Bilang x :");
+        //untuk menginputkan data bertipe data int pada bilangan x
+        int x = input.nextInt();
+        //mencetak pada sebuah output ketika di enter      
+        System.out.println("Bilangan y :");
+        //untuk menginputkan data bertipe data int pada bilangan y
+        int y = input.nextInt();
+        //mencetak sebuah output yang dihasilkan dari nilai sebuah inputan x dan y
+        System.out.println(x + " dipangkatkan " + y + "=" + pangkatrekursif(x,y) );
+                
+    }
+    
+}
+##########################################################################
+
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska
+ */
+//membuat class dengan nama prima
+public class Prima {
+    
+    private static int ambilNilaiRekursif(int number, int index){
+           //ketika dicek nilai berupa 1 maka akan mengembalikan nilai index
+        if(index == 1){
+            //maka yang dihasilkan yaitu nilai 1
+            return 1;
+        }
+        else if (number % index == 0){
+            return 1 + ambilNilaiRekursif(number, --index);
+        }else{
+            return 0 + ambilNilaiRekursif(number, --index);
+            
+        }
+    }
+    public static boolean cekBilanganPrima(int num){
+        //jika num lebih dari 1
+        if (num > 1){
+            //akan menghasilkan 
+            return(ambilNilaiRekursif(num, num) == 2);
+            
+        }
+        else
+            //yang dihasilkan sebuah kesalahan 
+            return false;
+        
+    }
+    public static void main(String[] args){
+        //digunakan untuk menscan sbuah inputan
+        Scanner input = new Scanner(System.in);
+        //mencetak pada sebuah output 
+        System.out.print("Masukkan Bilangannya: ");
+       //untuk menginputkan data bertipe data int 
+        int num = input.nextInt();
+        //guna untuk mengecek sebuah nilai merupakan bilangan prima atau bukan 
+       if(cekBilanganPrima(num)) {
+           //ketika yang diinputkan sebuah bilangan prima maka otomatis 
+           //ketika  dienter menghasilkan sebuah pernyataan jika Bilangan prima
+           System.out.println("Bilangan Prima");
+       }else{
+            //ketika yang diinputkan bukan  bilangan prima maka otomatis 
+           //ketika  dienter menghasilkan sebuah pernyataan jika bukan Bilangan prima
+           System.out.println("Bukan Bilangan Prima");
+       }
+    }
+    
+}
+#######################################################################################
+ /*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska
+ */
+//membuat sebuah class dengan nama binarysearch
+public class BinarySearch {
+    //membuat fungsi data bertipe integer 
+     public static int Binary(int [] a, int b, int c){
+         //jika nilai c kurang dari 0
+       if (c < 0)
+           //yang dihasilkan yaitu  -1
+           return -1;
+       //jika dicek nilai berupa b maka akan mengembalikan nilai a[c]
+       else if (a[c] == b)
+           //yang dihasilkan c
+           return c;
+       else
+           return Binary(a, c, c-1);  
+}
+     public static int Caridata (int[] a, int b){
+         return Binary(a, b, a.length -1);  
+     }
+     public static void main(String[] args){
+         //memasukkan angka pada inputan 
+         int [] angka ={2,5,8,10,14,32,35,41,67,88,90,};
+         //mencetak angka yang sama seperti data yang diinputkan
+         System.out.print("Data :");
+         //melakukan perulangan pada bilanga dengan panjang sesuai yang diinputkan
+         for(int i = 0; i < angka.length; i++)
+             //mencetakkan pada output
+             System.out.print("" +angka[i]);
+         //mencetakkan nilang angka yang dicari yaitu 10
+         System.out.println("\nData yang dicari 10");
+         int nilai = Caridata(angka, 10);
+         if (nilai >= 0){
+             System.out.println("Data "+10+" ditemukan pada index ke "+nilai);
+         }else
+             //mencetakkan data yang ada ada index
+             System.out.println("Data ke-10 berada pada index ke:4 " );
+         }
+         
+     
+     }
+     
+#######################################################################################
+
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska
+ */
+//membuat class dengan nama MenaraHanoi
+public class MenaraHanoi {
+    //membuat fungsi data agar dapat  beripindah pindah 
+    public static void Pindah(int disk, char pasak1, char pasak2, char Media){
+         //ketika dicek nilai berupa 0 maka akan mengembalikan nilai disc
+        if(disk==0){
+            //mengahsilkan nilai yang sama
+            return;
+        }else{
+            //memindahkan (disc -1, pasak1, pasak2,Media)
+            Pindah(disk -1, pasak1, pasak2,Media);
+            //mencetak apa yang sudah dipindahkan
+            System.out.println("Pindahkan disk "+disk+" dari pasak "+pasak1+" ke pasak "+pasak2);
+            Pindah(disk -1, Media, pasak1, pasak2);
+        }
+    }
+     public static void main(String[] args){
+         //digunakan untuk menscan sbuah inputan
+         Scanner input = new Scanner(System.in);
+         //mencetak sebuah tampilan pada output
+         System.out.println("Jumlah Disk");
+         //menginputkan data berupa int pada jumlah disk
+         int z = input.nextInt();
+                 Pindah(z, 'A', 'B', 'C');
+         
+        }
+           
+    } 
+
+######################################################################3
+    
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska 
+ */
+public class Kombinasi {
+    static void allLexicographicRecur(String str, char[] data, int last, int index){
+        int length = str.length();
+        
+        for (int i = 0; i< length; i++){
+            data[index] = str.charAt(i);
+            
+            if(index == last){
+                System.out.print(new String(data) + " ");
+            }else{
+               allLexicographicRecur(str, data,last,index + 1);
+               
+            }
+        }
+    } 
+    static void allLexicographicRecur(String str){
+        int length = str.length();
+        char[] data = new char[length + 1];
+        char[] temp = str.toCharArray();
+        
+        Arrays.sort(temp);
+        str = new String (temp);
+        
+        allLexicographicRecur(str, data, length - 1, 0); 
+    }
+    public static void main(String[] args){
+        String str ="ABC";
+        System.out.printf("All permutation with" + "repetition of %s are: \n", str);
+         allLexicographicRecur(str);
+        
+    }
+        
+    }
+
+            
+
+    
+##############################################################################33
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska
+ */
+//membuat class dengan nama rekursif7
+public class rekursif7 {
+    //membuat fungsi dengan data string tipe int
+    public static String ex234(int n){
+        //jika nkurang dari sama dengn 0 maka akan mengembalikan tanda " "
+        if (n <= 0) return "";
+        //untuk selanjutnya akan mengembalikan data ex234(n-3) + n + ex234 (n-2) + n 
+        return ex234(n-3) + n + ex234 (n-2) + n;
+    }
+    public static void main(String[]args){
+        System.out.println(ex234(9));
+    }
+}
+######################################################
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska
+ */
+//membuat class dengan nama rekursif1
+public class rekursif1 {
+    //mendeklarasikan method Desimal kebiner
+    public static void dectobin(int num){
+        //jika num lebih dari 0
+        if (num > 0){
+            //num akan dibagi 2
+            dectobin(num /2);
+            //mencetak sebuah output dari project
+            System.out.println(num % 2);
+            
+        }
+    }
+    
+   public static void main(String[] args){
+       dectobin(2);
+       
+   }
+}
+##########################################3
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+ /**
+ *
+ * @author Fitri Ariska
+ */
+//membuat sebuah class dengan nama rekursif2
+public class rekursif2{
+    
+    public static void main(String[] args){
+        //mencetak 
+        System.out.println(test("01101",4));
+    }
+     //membuat fungsi data bertipe integer 
+    // menerima inputan data berupa integer
+    public static int test(String s, int last){
+        //jika dicek last kurang dari 0
+        if(last < 0){
+            //mengeluarkan  nilai 0
+            return 0;  
+        }
+        
+        if(s.charAt(last) == 0){
+            //mengembalikan nilai 2 dengan test(s, last - 1);
+            return 2 * test(s, last - 1);
+        }
+        //mengeksekusi nilai 1 + 2 dikalikan dengan test(s, last-1);
+        return 1 + 2 * test(s, last-1);
+    }
+    
+}
+
+#######################################################################3
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska
+ */
+//membuat class dengan nama rekursif3
+public class rekursif3 {
+    public static void main(String[] args){
+        //menggunakan tipe data int dengan nama myarray panjang 
+        int[] myArray = {1,2,3,4,5,6,7,78,8};
+        //mencetak sesuai panjang array
+        System.out.println(search(myArray, myArray.length, 100));
+        
+    }         
+   public static boolean search(int[] x, int size, int n) {
+       //jika dicek size kurang dari 0
+       if( size > 0){
+           
+           if(x[size-1] == n){
+               //maka akan menghasilkan atau mengeluarkan nilai true 
+               return true; 
+           }else{  
+               return search(x, size-1, n);
+           }
+       }
+       return false;
+   }
+}
+#############################################################
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska
+ */
+//membuat class dengan nama rekursif4
+public class rekursif4 {
+   //membuat fungsi data bertipe integer 
+    public  static boolean binarySearch(int[] x, int start, int end, int n){
+        //jika end kurang dari start maka mengeluarkan pernyataan false
+        if(end < start ) return false;
+        int mid =(start + end)/ 2;
+        
+        if(x[mid] == n){
+            return true;
+        }else{
+            if(x[mid] < n){
+                return binarySearch(x, mid+1, end, n);
+            }else{
+                return binarySearch(x, start, mid-1, n);
+            }
+        }
+    }
+    public static void main(String[] args){
+        //memiliki tipe data integer dengan nama myArray
+        int[] myArray = {1,2,3,5,56,45,12,31,32,4,8,6,5,8,3,9,92,76};
+        int s = myArray.length;
+        int x = 12312;
+        boolean result = binarySearch(myArray,0, s-1, x);
+        System.out.println(result);
+    }
+}
+
+#######################################################
+ /*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska 
+ */
+//membuat sebuah class dengan nama rekursif5
+public class rekursif5 {
+    public static int mystery(int a, int b){
+        //ketika dicek nilai berupa 0 maka akan mengembalika nilai b
+        //maka mengeluarkan nilai 0
+        if(b == 0) return 0;
+        //jika b dengan 2 sama dengan 0 maka mengembalikan nilai mistery a+a b/2
+        if(b % 2 == 0) return mystery(a+a, b/2);
+        //menyatakan mengembalikan lagi dengan a+a,b/2 +a
+        return mystery(a+a, b/2) + a;
+    }
+    public static void main(String[] args){
+        System.out.println(mystery(3, 11));
+    }
+}
+
+####################################################
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska
+ */
+//membuat class dengan nama rekursif6
+public class rekursif6 {
+    //membuat fungsi dengan tipe data boolean godlike dengan tipe data int
+    public static boolean gcdLike(int p, int q){
+        //jika q samadengan 0 maka akan mengembalikan nilai dengam sebuah pernyataan p sama dengan 1
+        if (q == 0) return (p == 1);
+        //dan juga akan mengembalikan nilai gcdLike(q,p% q);
+        return gcdLike(q,p% q);
+    }
+    public static void main(String[] args){
+        System.out.println(gcdLike(1,0));
+    }
+    
+}
+#################################################################
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Fitri Ariska
+ */
+//membuat class dengan nama rekursif7
+public class rekursif7 {
+    //membuat fungsi dengan data string tipe int
+    public static String ex234(int n){
+        //jika nkurang dari sama dengn 0 maka akan mengembalikan tanda " "
+        if (n <= 0) return "";
+        //untuk selanjutnya akan mengembalikan data ex234(n-3) + n + ex234 (n-2) + n 
+        return ex234(n-3) + n + ex234 (n-2) + n;
+    }
+    public static void main(String[]args){
+        System.out.println(ex234(9));
+    }
+}
+#######################################################
+
+
